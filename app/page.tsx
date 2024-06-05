@@ -29,14 +29,18 @@ export default function Home() {
         className="absolute inset-0 -z-10 animate-fade-in"
         quantity={100}
       />
+      <h3 className="z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
+        Alec
+      </h3>
       <h1 className="z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
-        a-Squire
+        Squire
       </h1>
 
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <div className="my-16 text-center animate-fade-in">
+        <h2 className="text-sm text-zinc-500 ">Front End Web Developer</h2>
         <h2 className="text-sm text-zinc-500 ">
-          portfolio website for Alec Squire
+          TypeScript + React.js + Next.js + Tailwind
         </h2>
         {/* <AutoPlay /> */}
       </div>

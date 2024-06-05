@@ -4,12 +4,14 @@ import { allProjects } from "contentlayer/generated";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import { Article } from "./article";
+import { Github } from "lucide-react";
 // import { Redis } from "@upstash/redis";
 // import { Eye } from "lucide-react";
 
 // const redis = Redis.fromEnv();
 
 export const revalidate = 60;
+
 export default async function ProjectsPage() {
   // const views = (
   //   await redis.mget<number[]>(
@@ -20,16 +22,15 @@ export default async function ProjectsPage() {
   //   return acc;
   // }, {} as Record<string, number>);
 
-  const featured = allProjects.find((project) => project.slug === "unkey")!;
-  const top2 = allProjects.find((project) => project.slug === "planetfall")!;
-  const top3 = allProjects.find((project) => project.slug === "highstorm")!;
+  const featured = allProjects.find((project) => project.slug === "milo")!;
+  // const top2 = allProjects.find((project) => project.slug === "planetfall")!;
+  // const top3 = allProjects.find((project) => project.slug === "highstorm")!;
   const sorted = allProjects
     .filter((p) => p.published)
     .filter(
-      (project) =>
-        project.slug !== featured.slug &&
-        project.slug !== top2.slug &&
-        project.slug !== top3.slug
+      (project) => project.slug !== featured.slug
+      // && project.slug !== top2.slug
+      // && project.slug !== top3.slug
     )
     .sort(
       (a, b) =>
@@ -43,7 +44,7 @@ export default async function ProjectsPage() {
       <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
-            Projects
+            Feature project
           </h2>
           <p className="mt-4 text-zinc-400">
             Some of the projects are from work and some are on my own time.
@@ -64,7 +65,7 @@ export default async function ProjectsPage() {
                         }).format(new Date(featured.date))}
                       </time>
                     ) : (
-                      <span>SOON</span>
+                      <span>FINAL PRODUCT COMING SOON</span>
                     )}
                   </div>
                   <span className="flex items-center gap-1 text-xs text-zinc-500">
@@ -90,16 +91,32 @@ export default async function ProjectsPage() {
             </Link>
           </Card>
 
-          <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
+          {/* <Link
+            href="https://github.com/AlecSquire"
+            className="flex flex-row-reverse w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 mt-4  text-zinc-100"
+          >
+            <Github size={170} className="font-thin	" /> For a full list of all
+            my projects check out my git hub{" "}
+            <p className="font-bold tracking-tight sm:text-base"></p>
+          </Link> */}
+
+          {/* Commenting out the top2 and top3 rendering for now */}
+          {/* <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
             {[top2, top3].map((project) => (
               <Card key={project.slug}>
                 <Article project={project} />
               </Card>
             ))}
-          </div>
+          </div> */}
         </div>
-        <div className="hidden w-full h-px md:block bg-zinc-800" />
-
+        {/* <div className="hidden w-full h-px md:block bg-zinc-800" />
+        <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
+          Blog posts
+        </h2>
+        <p className="mt-4 text-zinc-400">
+          I like to use writing as a way to cement my learning, and if it can
+          help anyone in the process even better.
+        </p>
         <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3">
           <div className="grid grid-cols-1 gap-4">
             {sorted
@@ -110,12 +127,13 @@ export default async function ProjectsPage() {
                 </Card>
               ))}
           </div>
+
           <div className="grid grid-cols-1 gap-4">
             {sorted
               .filter((_, i) => i % 3 === 1)
               .map((project) => (
                 <Card key={project.slug}>
-                  <Article project={project} />{" "}
+                  <Article project={project} />
                 </Card>
               ))}
           </div>
@@ -124,11 +142,11 @@ export default async function ProjectsPage() {
               .filter((_, i) => i % 3 === 2)
               .map((project) => (
                 <Card key={project.slug}>
-                  <Article project={project} />{" "}
+                  <Article project={project} />
                 </Card>
               ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

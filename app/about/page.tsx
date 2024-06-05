@@ -52,14 +52,6 @@ const about = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-end border-8 ">
-        <Link
-          href={"/contact"}
-          className="z-10 text-4xl text-transparent duration-4000 bg-white cursor-pointer text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text"
-        >
-          Get in touch
-        </Link>
-      </div>
     </div>
   );
 };
