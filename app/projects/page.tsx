@@ -4,7 +4,7 @@ import { allProjects } from "contentlayer/generated";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import { Article } from "./article";
-import { Github } from "lucide-react";
+
 // import { Redis } from "@upstash/redis";
 // import { Eye } from "lucide-react";
 
