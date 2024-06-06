@@ -23,7 +23,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: '9'  # Ensure this matches your local version
+          version: '9.2.0'  # Ensure this matches your local version
 
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
